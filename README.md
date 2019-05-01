@@ -43,3 +43,14 @@ int score = s.nextInt();	//整型
 ​	快捷键 Keymap
 
 定位类/方法位置 Ctrl + B
+
+
+
+## git push
+
+```git
+git add .
+git commit -m "注释内容"
+git push -u origin master
+```
+
