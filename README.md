@@ -51,6 +51,7 @@ int score = s.nextInt();	//整型
 ```git
 git add .
 git commit -m "注释内容"
-git push -u origin master
+git push
+//git push -u origin master
 ```
 
