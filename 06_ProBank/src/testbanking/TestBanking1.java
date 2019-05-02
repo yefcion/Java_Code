@@ -1,6 +1,6 @@
 package testbanking;
 
-import banking1.Account;
+import banking2.Account;
 import banking2.Customer;
 
 public class TestBanking1 {
