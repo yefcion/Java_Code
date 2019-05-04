@@ -53,18 +53,29 @@ public class Mcu {
 在Mcu类中实例化Mavel类的对象Witch，调用setPower()和getPower()方法，体会Java的封装性
 */
 
+/*
+ * this 关键字
+ * 1.可用来修饰属性、方法、构造器
+ * 2.this理解为当前对象或当前正在创建的对象
+ *
+ * */
+
 class Marvel {
     //1.属性
     // private 修饰的属性，只能在本类中被调用，出了类之后就不能调用了
     public String name;             // public       任何地方
-                                    // protected    子类
+    // protected    子类
     int power;                      // 缺省          同一个包
     private String oriName;         // private      类内部
 
     // 构造器-此处时把默认的空参构造器显式地表现出来
-    public void Marvel(){
-        power = 3;                  // 给他设置一个默认的power值
+    public Marvel() {
     }
+
+    public Marvel(int n) {
+        power = n;                  // 给他设置一个默认的power值
+    }
+
     // 2.方法
     public void eat() {
         System.out.println("吃饭");
@@ -79,8 +90,8 @@ class Marvel {
     }
 
     // 设置类的属性
-    public void setName(String n) {
-        name = n;
+    public void setName(String name) {
+        this.name = name;                                   // this
     }
 
     public void setOriName(String n) {
@@ -103,5 +114,38 @@ class Marvel {
 
     public int getPower() {
         return power;
+    }
+}
+
+/*
+ * 编写两个类，TriAngle和TestTriAngle，
+ * 其中TriAngle中声明私有的底边长base和高height，
+ * 同时声明公共方法访问私有变量；
+ * 另一个类中使用这些公共方法，
+ * 计算三角形的面积。
+ * */
+
+class TriAngle {
+    private double base;
+    private double height;
+
+    public double getBase() {
+        return base;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getArea() {
+        return this.base * this.height / 2;
     }
 }

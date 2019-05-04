@@ -9,10 +9,11 @@ import java.util.Scanner;
  */
 
 /*
- *  一、面向对象思想的落地法则：
+ *  一、面向对象思想的落地法则一：
  *  1.设计类，并设计类的成员被（成员变量&成员方法）
  *  2.通过类，来创建类的对象（也称类的实例化）
  *  3.通过“对象.属性”或“对象.方法”来调用，完成相应功能
+ *
  *  二、创建的多个对象，彼此各自拥有一套类的属性，当对其中一个对象属性进行修改时
  *  不会影响其他对象的属性值
  *
@@ -75,10 +76,10 @@ import java.util.Scanner;
  */
 
 /* 其他
-* 1.匿名类对象：创建的类的对象事匿名的
-*   1）当只需要一次调用类的对象时，可以考虑使用匿名对象
-*   2）特点：创建的匿名类对象只能调用一次
-* */
+ * 1.匿名类对象：创建的类的对象事匿名的
+ *   1）当只需要一次调用类的对象时，可以考虑使用匿名对象
+ *   2）特点：创建的匿名类对象只能调用一次
+ * */
 
 /* 方法的参数传递（重点难点）
  *  1.形参与实参
@@ -94,6 +95,7 @@ import java.util.Scanner;
  * 不满足实际情况的意外，我们不考虑让对象来直接作用属性，而是通过“对象.方法”的形式，来控制
  * 对象对属性的访问。实际情况中，对属性的要求就可以通过方法来体现。
  *
+ * 面向对象思想的落地法则二：
  * 解决的方法：（封装的思想）
  *  ①将类的属性私有化
  *  ②提供公用的方法（setter & getter）来实现调用
@@ -103,6 +105,16 @@ import java.util.Scanner;
  *      注：1）权限从大到小：public protected 缺省 private
  *          2）修饰类的权限：public 缺省
  * */
+
+/*
+* this；
+* 1.可以用来修饰属性、方法、构造器
+* 2.this理解为当前对象或当前正在创建的对象，比如：this.name，this.show（）；
+* 3.可以在构造器中通过“this（形参）”的方式显示的调用本类中其它重载的指定的构造器。
+*
+* 要求，1.在构造器内部必须声明在首行！
+* 2.若一个类中有n个构造器，那么最多有n-1个构造器中使用了this（形参）；
+* */
 public class Main {
 
     public static void main(String[] args) {
@@ -133,10 +145,10 @@ public class Main {
         System.out.println(p2.desc());
 
         // 数组相关操作
-        int[] arr = new int[]{21,343,-43,2,34,55,15};
+        int[] arr = new int[]{21, 343, -43, 2, 34, 55, 15};
         ArrayUtil au = new ArrayUtil();
         au.printArray(arr);
-        System.out.println("平均数：\t"+au.avg(arr));
+        System.out.println("平均数：\t" + au.avg(arr));
         au.sort(arr);
         System.out.println("数组排序：\t");
         au.printArray(arr);
@@ -145,17 +157,24 @@ public class Main {
         System.out.println("\n\n重载操作：");
         Overload ol = new Overload();
         ol.mOL(7);
-        ol.mOL(7,9);
+        ol.mOL(7, 9);
         ol.mOL("hhh");
         System.out.println("\n最大值：");
-        System.out.println(ol.max(2,4));
-        System.out.println(ol.max(1.2,2.3));
-        System.out.println(ol.max(2.3,3.4,3.7));
+        System.out.println(ol.max(2, 4));
+        System.out.println(ol.max(1.2, 2.3));
+        System.out.println(ol.max(2.3, 3.4, 3.7));
 
         // 圆面积操作
         PassObject p = new PassObject();
         Circle c = new Circle();
-        p.printAreas(c,5);
-        System.out.println("now radius is: "+c.getRadius());
+        p.printAreas(c, 5);
+        System.out.println("now radius is: " + c.getRadius());
+
+        // 三角形面积操作
+        TriAngle tiran = new TriAngle();
+        tiran.setBase(3.5);
+        tiran.setHeight(3.6);
+        System.out.println("三角形面积是：" + tiran.getArea());
+
     }
 }

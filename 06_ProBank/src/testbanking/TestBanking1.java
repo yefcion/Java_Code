@@ -1,12 +1,9 @@
 package testbanking;
 
-import banking2.Account;
-import banking2.Customer;
+import banking1.Account;
 
 public class TestBanking1 {
     public static void main(String[] args) {
-        Customer customer = new Customer("Jane","Smith");
-        System.out.println("Creating thr customer Jane Smith.");
         Account account;
 
         // Create an account that can has a 500.00 balance.
@@ -21,8 +18,8 @@ public class TestBanking1 {
 
         account.withdraw(47.62);
         System.out.println("Withdraw 47.62");
-
         // Print out the final account balance
-        System.out.println("Customer [ " +customer+"] has a balance of "+ account.getBalance());
+        System.out.println("The account has a balance of " + account.getBalance());
+
     }
 }
