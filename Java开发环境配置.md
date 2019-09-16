@@ -42,6 +42,16 @@ update mysql.user set authentication_string="password" where user="root";
 
 
 
+ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost' (10061)
+
+
+
+navicat
+
+https://blog.csdn.net/a599174211/article/details/82795658
+
+
+
 ### 05 IDEA
 
 Lombok
