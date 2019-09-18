@@ -1,20 +1,23 @@
 package com.yefcion;
 
-/*
+/**
  * 1.存储对象可以考虑：1 数组  2 集合
  * 2.数组存储对象的特点：Student[] stu = new Student[20]; stu[0] = new Student();
  *   > 弊端：1 一旦创建，长度不可变；2 真实的数组存放的对象个数不可知
  * 3.集合
- *
- *
+ *      Collection 接口
+ *          |----- List 接口：存储有序的，可以重复的元素
+ *              |----- ArrayList、LinkedList、Vector
+ *          |----- Set 接口：存储无序的，不可重复的元素
+ *              |----- Hash Set、LinkedHashSet、TreeSet
+ *      Map 接口：存储“键 - 值”对数据
+ *          |----- HashMap、LinkedHashMap、TreeMap、Hashtable(子类：Properties)
  * */
 
 import org.junit.Test;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 public class CollectionA {
     @Test
@@ -87,9 +90,44 @@ public class CollectionA {
         col.add("end");
         System.out.println("col:\t" + col);
 
-        // 9.removeAll(Collection col2) 将两个集合中不重合部分返回给使用方法的对象
-        // a(1,2,3) b(2,3,4) a.removeAll(b)->a(1,4)
+        // 9.a.removeAll(Collection b)  删除 a 中与 b 重合的元素
+        // a(1,2,3) b(2,3,4) a.removeAll(b)->a(1)
+        col2.add("txt");
+        System.out.println("col2:\t" + col2);
         col.removeAll(col2);
         System.out.println("col.rmAll:\t" + col);
+
+        // 10.equals() 所有元素都相同，顺序也要相同
+        Collection col3 = new ArrayList();
+        col3.addAll(col);
+        col.add(1);
+        col.add(2);
+        col3.add(2);
+        col3.add(1);
+        System.out.println("col:\t" + col);
+        System.out.println("col3:\t" + col3);
+        System.out.println("col=col3:\t" + col.equals(col3));
+
+        // 11.hashCode() 每次生成的哈希值不同
+        System.out.println("col.hash:\t" + col.hashCode());
+
+        // 12.toArray() 集合转数组
+        System.out.print("toArray: ");
+        Object[] obj = col.toArray();
+        for (int i = 0; i < obj.length; i++) {
+            System.out.print(obj[i] + " ");
+        }
+
+        // 13.iterator() 返回一个 Iterator 接口实现类的对象，进而实现集合元素遍历
+        System.out.print("\niterator: ");
+        Iterator iterator = col.iterator();
+        // 方式1 丑拒
+//        for (int i=0;i<col.size();i++){
+//            System.out.print(iterator.next()+" ");
+//        }
+        // 方式2 常用
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
+        }
     }
 }
