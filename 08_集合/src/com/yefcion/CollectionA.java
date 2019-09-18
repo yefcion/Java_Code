@@ -83,12 +83,13 @@ public class CollectionA {
         Collection col2 = new ArrayList();
         col2.addAll(col);
         col2.remove(d);
-        System.out.println("col2: " + col2);
+        System.out.println("col2:\t" + col2);
         col.add("end");
-        System.out.println("col: " + col);
+        System.out.println("col:\t" + col);
 
         // 9.removeAll(Collection col2) 将两个集合中不重合部分返回给使用方法的对象
+        // a(1,2,3) b(2,3,4) a.removeAll(b)->a(1,4)
         col.removeAll(col2);
-        System.out.println(col);
+        System.out.println("col.rmAll:\t" + col);
     }
 }
