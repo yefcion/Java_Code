@@ -54,6 +54,14 @@ https://blog.csdn.net/a599174211/article/details/82795658
 
 ### 05 IDEA
 
+注意这两处的 JDK 配置
+
+![Settings](https://raw.githubusercontent.com/yefcion/PicData/master/img/20190918211658.png)
+
+
+
+插件：
+
 Lombok
 
 alibaba java code guidlines
