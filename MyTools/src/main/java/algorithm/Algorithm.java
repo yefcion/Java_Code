@@ -7,4 +7,9 @@ package algorithm;
  */
 
 public class Algorithm {
+    public static void main(String[] args){
+        Queen8 queen8 = new Queen8();
+        queen8.settleQueen(0);
+        queen8.printChessBoard();
+    }
 }
