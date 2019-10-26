@@ -4,7 +4,6 @@ SpringBoot/SpringBatis/target/
 !**/src/main/**
 !**/src/test/**
 
-.class
 ### STS ###
 .apt_generated
 .classpath
@@ -14,6 +13,7 @@ SpringBoot/SpringBatis/target/
 .springBeans
 .sts4-cache
 .jar
+.class
 
 ### IntelliJ IDEA ###
 .idea
