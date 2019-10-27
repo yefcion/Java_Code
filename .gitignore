@@ -4,6 +4,8 @@ SpringBoot/SpringBatis/target/
 !**/src/main/**
 !**/src/test/**
 
+.mvn
+
 ### STS ###
 .apt_generated
 .classpath
