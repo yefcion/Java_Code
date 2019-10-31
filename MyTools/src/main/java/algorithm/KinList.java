@@ -32,11 +32,16 @@ public class KinList {
         System.out.println(findKthLargest35(num,k));
     }
 
+    /**
+     * 时间复杂度：O(NlogN)。这里 N 是数组的长度，算法的性能消耗主要在排序，JDK 默认使用快速排序，因此时间复杂度为O(NlogN)
+     * 空间复杂度：O(1)。这里是原地排序，没有借助额外的辅助空间。
+     */
     public int findKthLargest1(int[] nums, int k) {
         int len = nums.length;
         Arrays.sort(nums);
         return nums[len - k];
     }
+
 
     public int findKthLargest2(int[] nums, int k) {
         int len = nums.length;
