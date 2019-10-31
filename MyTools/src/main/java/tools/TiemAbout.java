@@ -35,12 +35,46 @@ public class TiemAbout {
         System.out.println("时间戳转时间：" + stamp2time2);
 
         // 当前时间戳(现成函数)
+        // 注：这个时间太精确了，不建议使用
         Long timeStamp = System.currentTimeMillis();
         System.out.println("函数当前时间戳：" + timeStamp);
 
         // 函数时间戳转时间
         String stamp2time = sdf.format(new Date(timeStamp));
         System.out.println("函数时间戳转时间：" + stamp2time);
+    }
 
+    /**
+     * 这个时间是系统运行时间，不太敢用
+     */
+    public static String generateId() {
+        Long timeStamp = System.currentTimeMillis() / 1000;
+        int five = (int) ((Math.random() * 9 + 1) * 10000);
+//        String onlyId = timeStamp.toString() + " " + five;
+        String onlyId = timeStamp.toString() + five;
+        return onlyId;
+    }
+
+    /**
+     * 这样主动传值会好一点
+     */
+    public static String generateIdByString(String time) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = sdf.parse(time);
+        long time2stamp = date.getTime() / 1000;
+        String stampStr = String.valueOf(time2stamp);
+
+        int five = (int) ((Math.random() * 9 + 1) * 10000);
+        String onlyId = stampStr + five;
+//        String onlyId = stampStr + " " + five;
+        return onlyId;
+    }
+
+    @Test
+    public void idTest() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        System.out.println(generateId());
+        System.out.println(generateIdByString(sdf.format(new Date())));
     }
 }
