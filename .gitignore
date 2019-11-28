@@ -34,3 +34,25 @@ build/
 ### VS Code ###
 .vscode/
 .mvn
+/JavaBase/04_数组/out/production/04_数组/com/company/*.class
+/JavaBase/01_HelloWorld/out/production/01_HelloWorld/com/company/*.class
+/JavaBase/02_运算符/out/production/02_运算符/com/company/*.class
+/JavaBase/03_流程控制/out/production/03_流程控制/com/company/*.class
+/JavaBase/04_数组/out/production/04_数组/*.class
+/JavaBase/05_面向对象/out/production/05_面向对象/META-INF/*.kotlin_module
+/JavaBase/05_面向对象/out/production/05_面向对象/com/company/*.class
+/JavaBase/06_ProBank/out/production/06_ProBank/META-INF/*.kotlin_module
+/JavaBase/06_ProBank/out/production/06_ProBank/banking1/*.class
+/JavaBase/06_ProBank/out/production/06_ProBank/banking2/*.class
+/JavaBase/06_ProBank/out/production/06_ProBank/banking3/*.class
+/JavaBase/06_ProBank/out/production/06_ProBank/banking4/*.class
+/JavaBase/06_ProBank/out/production/06_ProBank/testbanking/*.class
+/JavaBase/06_ProBank/out/production/06_ProBank/thisback/*.class
+/JavaBase/07_高级类特性/out/production/07_高级类特性/com/company/*.class
+/JavaBase/07_高级类特性/out/production/07_高级类特性/practice/*.class
+/JavaBase/08_集合/target/classes/META-INF/*.kotlin_module
+/JavaBase/08_集合/target/classes/com/yefcion/*.class
+/Leetcode/target/classes/easy/*.class
+/MyTools/target/classes/algorithm/*.class
+/MyTools/target/classes/stage/*.class
+/MyTools/target/classes/tools/*.class
