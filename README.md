@@ -10,87 +10,17 @@
 
 
 
-# Java 开发环境配置
+### 仓库目录梳理：
 
-## win 环境
+[Article](Article): Java 相关文章目录，包括优秀的教程、经验等
 
-### 01 JDK & Jre
+[JavaBase](JavaBase): Java 基础
 
-安装
+[Leetcode](Leetcode): Leetcode/力扣 的算法题
 
-https://www.runoob.com/java/java-environment-setup.html
+[Mate](Mate): 伴侣/对象，这是我对于 Java 这门面向对象语言的玩笑，这个类要写一个完美的对象，如王菲的声音和性格、长泽雅美的笑颜
 
-Q&A
+[MyTools](MyTools): 我写的一些常用小工具，如类型转换等
 
-Q: jdk安装好之后，也配置好了环境变量，打开cmd输入javac可以跳出相关信息，可是输入java却一直提示：系统找不到文件C:\ProgramData\Oracle\Java\javapath\java.exe
-
-A: 把%JAVA_HOME%\bin放在path路径最前面，发现就可以
-
-### 02 Maven
-
-配置
-
-https://blog.csdn.net/huo920/article/details/82082403#Maven_17
-
-### 03 Tomcat
-
-安装
-
-https://www.jianshu.com/p/5020005cf672
-
-### 04 MySQL
-
-[Windows下MySQL下载安装、配置与使用](https://www.cnblogs.com/dtting/p/7691202.html)
-
-问题补充 https://blog.csdn.net/pan15125284/article/details/91410965
-
-解决：1、net stop mysql
-
-​          2、mysqld --console --skip-grant-tables --shared-memory（忽略权限）mysql8.0.16用这个 
-
-​          3、重新打开另一个cmd
-
-
-
-update mysql.user set authentication_string="password" where user="root";
-
-
-
-ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost' (10061)
-
-
-
-navicat
-
-https://blog.csdn.net/a599174211/article/details/82795658
-
-
-
-### 05 IDEA
-
-注意这两处的 JDK 配置
-
-![Settings](https://raw.githubusercontent.com/yefcion/PicData/master/img/20190918211658.png)
-
-
-
-插件：
-
-Lombok
-
-alibaba java code guidlines
-
-### 06 MMS
-
-#### Spring
-
-#### SpringMVC
-
-#### MyBatis
-
-
-
-
-
-## Linux 环境
+[SpringBoot](SpringBoot): SpringBoot 相关知识、项目都会放在这里
 
