@@ -56,3 +56,5 @@ build/
 /MyTools/target/classes/algorithm/*.class
 /MyTools/target/classes/stage/*.class
 /MyTools/target/classes/tools/*.class
+/MyTools/target/classes/META-INF/*.kotlin_module
+/MyTools/target/classes/data/controller/*.class
