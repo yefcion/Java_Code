@@ -3,6 +3,7 @@ SpringBoot/SpringBatis/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+MyTools/target/classes/
 
 .mvn
 
