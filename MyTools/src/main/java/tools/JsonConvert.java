@@ -27,7 +27,7 @@ public class JsonConvert {
     /**
      * java 对象转 json 字符串
      */
-    public static void bean2json(){
+    public static void bean2json() {
         User user = new User();
         user.setAction("eat");
         user.setId("16");
@@ -41,7 +41,7 @@ public class JsonConvert {
     /**
      * json 字符串转 java 对象
      */
-    public static void json2bean(){
+    public static void json2bean() {
         String json = "{\"action\":\"eat\",\"id\":\"16\",\"ordinal\":100,\"parent\":\"parents\"}";
         JSONObject jsonObject = JSON.parseObject(json);
         // 这里的感觉像 map
@@ -53,8 +53,8 @@ public class JsonConvert {
      * 复杂 json 格式字符串与 JSONObject 之间的转换
      * 多层嵌套 json
      */
-    public static void json2beanComplex(){
-        String str ="{\"meta\":{\"code\":\"0\",\"message\":\"同步成功!\"},\"data\":{\"orderno\":\"U_2018062790915774\",\"suborderno\":\"SUB_2018062797348039\",\"type\":\"organunit\",\"result\":{\"organunit\":{\"totalCount\":2,\"successCount\":0,\"failCount\":2,\"errors\":[{\"code\":\"UUM70004\",\"message\":\"组织单元名称不能为空\",\"data\":{\"id\":\"254\",\"suborderNo\":\"SUB_2018062797348039\",\"organUnitType\":\"部门\",\"action\":\"add\",\"parent\":\"10000\",\"ordinal\":0,\"organUnitFullName\":\"组织单元全称\"},\"success\":false},{\"code\":\"UUM70004\",\"message\":\"组织单元名称不能为空\",\"data\":{\"id\":\"255\",\"suborderNo\":\"SUB_2018062797348039\",\"organUnitType\":\"部门\",\"action\":\"add\",\"parent\":\"10000\",\"ordinal\":0,\"organUnitFullName\":\"组织单元全称\"},\"success\":false}]},\"role\":{\"totalCount\":0,\"successCount\":0,\"failCount\":0,\"errors\":[]},\"user\":{\"totalCount\":0,\"successCount\":0,\"failCount\":0,\"errors\":[]}}}}";
+    public static void json2beanComplex() {
+        String str = "{\"meta\":{\"code\":\"0\",\"message\":\"同步成功!\"},\"data\":{\"orderno\":\"U_2018062790915774\",\"suborderno\":\"SUB_2018062797348039\",\"type\":\"organunit\",\"result\":{\"organunit\":{\"totalCount\":2,\"successCount\":0,\"failCount\":2,\"errors\":[{\"code\":\"UUM70004\",\"message\":\"组织单元名称不能为空\",\"data\":{\"id\":\"254\",\"suborderNo\":\"SUB_2018062797348039\",\"organUnitType\":\"部门\",\"action\":\"add\",\"parent\":\"10000\",\"ordinal\":0,\"organUnitFullName\":\"组织单元全称\"},\"success\":false},{\"code\":\"UUM70004\",\"message\":\"组织单元名称不能为空\",\"data\":{\"id\":\"255\",\"suborderNo\":\"SUB_2018062797348039\",\"organUnitType\":\"部门\",\"action\":\"add\",\"parent\":\"10000\",\"ordinal\":0,\"organUnitFullName\":\"组织单元全称\"},\"success\":false}]},\"role\":{\"totalCount\":0,\"successCount\":0,\"failCount\":0,\"errors\":[]},\"user\":{\"totalCount\":0,\"successCount\":0,\"failCount\":0,\"errors\":[]}}}}";
         JSONObject jsonObject = JSON.parseObject(str);
         JSONObject meta = jsonObject.getJSONObject("meta");
         String code = meta.getString("code");
@@ -75,18 +75,19 @@ public class JsonConvert {
      * json 字符串转 java 简单对象
      */
     public static void jsonStrToJavaBean() {
-        String jsonStr ="{\"action\":\"add\",\"id\":\"1\",\"ordinal\":8,\"organUnitFullName\":\"testJSON\",\"parent\":\"0\",\"suborderNo\":\"58961\"}";
+        String jsonStr = "{\"action\":\"add\",\"id\":\"1\",\"ordinal\":8,\"organUnitFullName\":\"testJSON\",\"parent\":\"0\",\"suborderNo\":\"58961\"}";
 
         User user = JSON.parseObject(jsonStr, User.class);
-        System.out.println("user对象"+user.toString());
-        System.out.println("action="+user.getAction()+"---id="+user.getId());
+        System.out.println("user对象" + user.toString());
+        System.out.println("action=" + user.getAction() + "---id=" + user.getId());
 
         /**
          * 另一种方式转对象
          */
-        User dd = JSON.parseObject(jsonStr, new TypeReference<User>() {});
-        System.out.println("另一种方式获取user对象"+dd.toString());
-        System.out.println("另一种方式获取="+dd.getAction()+"---id="+dd.getId());
+        User dd = JSON.parseObject(jsonStr, new TypeReference<User>() {
+        });
+        System.out.println("另一种方式获取user对象" + dd.toString());
+        System.out.println("另一种方式获取=" + dd.getAction() + "---id=" + dd.getId());
     }
 
     /**
@@ -131,8 +132,8 @@ public class JsonConvert {
         data.setSuborderNo("58961");
         JSONObject jsonObj = (JSONObject) JSON.toJSON(data);
         JSON json = (JSON) JSON.toJSON(data);
-        System.out.println("jsonObj"+jsonObj);
-        System.out.println("json对象"+json);
+        System.out.println("jsonObj" + jsonObj);
+        System.out.println("json对象" + json);
     }
 
     private static void errorArr(List<ErrorTypeMe> errors) {
