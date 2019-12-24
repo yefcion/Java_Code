@@ -63,4 +63,10 @@ public class UtilTest {
 
         // 直接调用 run() 方法，没有创建线程。
     }
+
+    @Test
+    public void testPic(){
+        String base64 = ImageUtils.img2base64Local("F:\\yefci\\Pictures\\家系图.jpg");
+        System.out.println(base64);
+    }
 }
