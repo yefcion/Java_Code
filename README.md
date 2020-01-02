@@ -24,3 +24,52 @@
 
 [SpringBoot](SpringBoot): SpringBoot 相关知识、项目都会放在这里
 
+
+
+
+
+
+
+
+
+## Something
+
+  SpringBoot Redis
+ http://www.imooc.com/article/49750
+
+ AES 加密
+
+ Json 转换
+ http 几种请求方法
+
+ .matches
+
+ JVM 线程基础
+ https://www.cnblogs.com/liebrother/p/11075246.html
+
+ 小 tips
+ 单数循环的时候，使用 % 取余
+
+ https://www.cnblogs.com/diandianquanquan/p/10606955.html
+
+ Java IO 输入输出；相对路径
+
+ Java 多线程
+
+ install mysql on remote server
+
+ SpringBoot
+ http://www.ityouknow.com/spring-boot.html
+ 注解
+
+ Springboot 使用 RestTemplate
+
+ Docker SpringBoot
+ http://www.ityouknow.com/springboot/2018/03/19/spring-boot-docker.html
+
+ Hbase 过滤器
+
+ Byte image
+
+ linux 快捷键  
+
