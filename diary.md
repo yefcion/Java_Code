@@ -1,9 +1,6 @@
-
-
 2019.10.22 
 
 从 GitHub 转 码云
-
 
 
 2019.10.29 
@@ -47,3 +44,10 @@
 装好了 wiki，以后可以用这个进行百科搜索了。此外我还在下载 Wiki En，以后安装/学习。
 
 学习 SpringBoot 进行鉴权
+
+以后尝试使用 PostGreSQL
+
+
+2020.01.07
+
+Have try the tool Sumlime, a bit good, but it seems like VSCode is better
