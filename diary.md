@@ -51,3 +51,7 @@
 2020.01.07
 
 Have try the tool Sumlime, a bit good, but it seems like VSCode is better
+
+2020.01.10
+跟师弟借了校园邮箱申请了一年免费 IDEA
+同时装了 Eclipse，希望以后可以无缝转换
