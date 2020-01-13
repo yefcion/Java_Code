@@ -5,6 +5,7 @@ SpringBoot/SpringBatis/target/
 !**/src/test/**
 MyTools/target/classes/
 
+*.class
 .mvn
 
 ### STS ###
@@ -16,7 +17,7 @@ MyTools/target/classes/
 .springBeans
 .sts4-cache
 .jar
-.class
+
 
 ### IntelliJ IDEA ###
 .idea
@@ -59,3 +60,6 @@ build/
 /MyTools/target/classes/tools/*.class
 /MyTools/target/classes/META-INF/*.kotlin_module
 /MyTools/target/classes/data/controller/*.class
+/MyTools/target/classes/algorithm/*.class
+/MyTools/target/classes/application/*.class
+/MyTools/target/classes/tools/*.class
