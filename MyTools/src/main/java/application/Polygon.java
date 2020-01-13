@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.max;
-import static jdk.nashorn.internal.objects.NativeMath.min;
+import static java.lang.Math.min;
 
 /**
  * @author： xu.yefcion
