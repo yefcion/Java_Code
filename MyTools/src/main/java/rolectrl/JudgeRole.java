@@ -18,4 +18,16 @@ public class JudgeRole {
         String back = judge("ROLE_ADMIN");
         System.out.println(back);
     }
+
+    @Test
+    public void stre(){
+        String s = "ko\njk";
+        String l = "\"ko\\njk\"";
+        String k = l.replace("\"","");
+
+
+        System.out.println(s);
+        System.out.println(l);
+        System.out.println(k);
+    }
 }
