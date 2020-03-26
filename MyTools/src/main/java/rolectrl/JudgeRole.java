@@ -25,7 +25,6 @@ public class JudgeRole {
         String l = "\"ko\\njk\"";
         String k = l.replace("\"","");
 
-
         System.out.println(s);
         System.out.println(l);
         System.out.println(k);
