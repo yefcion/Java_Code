@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
  * @date： 2020.4.15 22:21
  */
 
-public class MD5Utils {
+public class Md5Utils {
     /**
      * 16 进制字符串数组
      */
