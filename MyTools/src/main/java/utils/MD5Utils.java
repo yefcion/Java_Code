@@ -3,9 +3,9 @@ package utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -19,11 +19,11 @@ public class MD5Utils {
     /**
      * 16 进制字符串数组
      */
-    private final static String[] hexDigitsStrings = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+    private final static String[] HEX_DIGITS_STRINGS = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     /**
      * 16 进制字符集
      */
-    private final static char[] hexDigitsChar = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private final static char[] HEX_DIGITS_CHAR = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /**
      * MD5加密字符串
@@ -31,14 +31,10 @@ public class MD5Utils {
      * @param source 源字符串
      * @return 加密后的字符串
      */
-    public static String getMD5(String source) {
+    private static String getMd5(String source) {
         String mdString = null;
         if (null != source) {
-            try {
-                mdString = getMD5(source.getBytes("UTF-8"));
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
+            mdString = getMd5(source.getBytes(StandardCharsets.UTF_8));
         }
         return mdString;
     }
@@ -49,7 +45,7 @@ public class MD5Utils {
      * @param source 源字节数组
      * @return 加密后的字符串
      */
-    public static String getMD5(byte[] source) {
+    private static String getMd5(byte[] source) {
         String s = null;
         final int temp = 0xf;
         final int arraySize = 32;
@@ -62,9 +58,9 @@ public class MD5Utils {
             char[] str = new char[arraySize];
             int k = 0;
             for (int i = 0; i < strLen; i++) {
-                byte byte_0 = tmp[i];
-                str[k++] = hexDigitsChar[byte_0 >>> offset & temp];
-                str[k++] = hexDigitsChar[byte_0 & temp];
+                byte byte0 = tmp[i];
+                str[k++] = HEX_DIGITS_CHAR[byte0 >>> offset & temp];
+                str[k++] = HEX_DIGITS_CHAR[byte0 & temp];
             }
             s = new String(str);
         } catch (NoSuchAlgorithmException e) {
@@ -80,7 +76,7 @@ public class MD5Utils {
      * @return MD5字符串
      * @throws Exception
      */
-    public static String getFileMD5String(File file) throws Exception {
+    private static String getFileMd5String(File file) throws Exception {
         String ret = "";
         FileInputStream in = null;
         FileChannel fileChannel = null;
@@ -119,8 +115,8 @@ public class MD5Utils {
      * @return MD5字符串
      * @throws Exception
      */
-    public static String getFileMD5String(String fileName) throws Exception {
-        return getFileMD5String(new File(fileName));
+    public static String getFileMd5String(String fileName) throws Exception {
+        return getFileMd5String(new File(fileName));
     }
 
     /**
@@ -152,7 +148,7 @@ public class MD5Utils {
      * 转换字节数组为16进制字符串
      *
      * @param bytes 字节数组
-     * @return
+     * @return String
      */
     private static String byteArrayToHexString(byte[] bytes) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -191,7 +187,7 @@ public class MD5Utils {
         }
         int d1 = n / 16;
         int d2 = n % 16;
-        return hexDigitsStrings[d1] + hexDigitsStrings[d2];
+        return HEX_DIGITS_STRINGS[d1] + HEX_DIGITS_STRINGS[d2];
     }
 
     /**
@@ -201,8 +197,8 @@ public class MD5Utils {
      * @param md5 基准MD5值
      * @return 检验结果
      */
-    public static boolean checkPassword(String pwd, String md5) {
-        return getMD5(pwd).equalsIgnoreCase(md5);
+    private static boolean checkPassword(String pwd, String md5) {
+        return getMd5(pwd).equalsIgnoreCase(md5);
     }
 
     /**
@@ -225,8 +221,8 @@ public class MD5Utils {
      * @return 检验结果
      * @throws Exception
      */
-    public static boolean checkFileMD5(File file, String md5) throws Exception {
-        return getFileMD5String(file).equalsIgnoreCase(md5);
+    private static boolean checkFileMD5(File file, String md5) throws Exception {
+        return getFileMd5String(file).equalsIgnoreCase(md5);
     }
 
     /**
