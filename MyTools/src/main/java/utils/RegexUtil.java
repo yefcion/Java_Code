@@ -10,6 +10,13 @@ import java.util.regex.Pattern;
  */
 
 public class RegexUtil {
+    /**
+     * 正则匹配
+     *
+     * @param regex 规则
+     * @param str   需要匹配的字符串
+     * @return      匹配结果
+     */
     public static String patMat(String regex, String str) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);

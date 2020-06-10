@@ -1,6 +1,7 @@
 package tools;
 
 import org.junit.Test;
+import utils.RegexUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -96,19 +97,21 @@ public class RegularExp {
     }
 
     @Test
-    public void regexSplit(){
+    public void regexSplit() {
         // 取大写字母
         String str = "HelloWorldHelloJava";
         String regex = "[a-z]+";
+        System.out.println(RegexUtil.patMat(regex, str));
+
         String[] arr = str.split(regex);
-        for (String s:arr){
+        for (String s : arr) {
             System.out.println(s);
         }
     }
 
-
     /**
      * 正则匹配方法
+     *
      * @param regex
      * @param str
      * @return
