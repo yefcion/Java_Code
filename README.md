@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/yefcion/Java_Code)](./LICENSE)
 ![last-commit](https://img.shields.io/github/last-commit/yefcion/Java_Code?label=update)
-![visitor_count](https://visitor-badge.glitch.me/badge?page_id=<pow45465161321sf484982sd156f4s3212s1f8ews4f231fsd5fe4wf58w>)
+![visitor_count](https://visitor-badge.glitch.me/badge?page_id=<java45465161321sf484982sd156f4s3212s1f8ews4f231fsd5fe4wf58w>)
 
 
 ### 学习面向对象内容的三条主线
