@@ -1,5 +1,10 @@
 # Java 学习笔记
 
+[![license](https://img.shields.io/github/license/yefcion/Java_Code)](./LICENSE)
+![last-commit](https://img.shields.io/github/last-commit/yefcion/Java_Code?label=update)
+![visitor_count](https://visitor-badge.glitch.me/badge?page_id=<pow45465161321sf484982sd156f4s3212s1f8ews4f231fsd5fe4wf58w>)
+
+
 ### 学习面向对象内容的三条主线
 
 1、Java 类及类的成员
