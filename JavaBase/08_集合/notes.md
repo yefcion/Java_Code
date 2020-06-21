@@ -1,6 +1,6 @@
 collection 接口继承树
 
-![Collection](https://raw.githubusercontent.com/yefcion/PicData/master/img/20190918205417.png)
+![Collection](https://cdn.jsdelivr.net/gh/yefcion/PicData@master/img/20190918205417.png)
 
 
 
@@ -10,4 +10,4 @@ collection 接口继承树
 
 Map 接口继承树
 
-![Map](https://raw.githubusercontent.com/yefcion/PicData/master/img/20190918205617.png)
+![Map](https://cdn.jsdelivr.net/gh/yefcion/PicData@master/img/20190918205617.png)
