@@ -13,5 +13,4 @@ public class HelloApplication {
         // Spring应用启动起来
         SpringApplication.run(HelloApplication.class, args);
     }
-
 }

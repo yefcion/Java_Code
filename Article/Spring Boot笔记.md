@@ -6,7 +6,9 @@
 >
 > 整个Spring技术栈的一个大整合；
 >
-> J2EE开发的一站式解决方案；
+> J2EE开发的一站式解决方案
+
+
 
 ## 2、微服务
 
@@ -28,26 +30,22 @@
 
 http://www.gulixueyuan.com/ 谷粒学院
 
-环境约束 - 统一环境
+统一环境
 
-- jdk1.8：Spring Boot 推荐 jdk1.7 及以上；**java version "1.8.0_112"**
+- JDK Spring Boot 推荐 jdk1.7 及以上 - **java version "1.8.0_112"**
 
-- maven3.x：maven 3.3以上版本；**Apache Maven 3.3.9**
+- maven 3.3 以上版本 - **Apache Maven 3.3.9**
 
-- IntelliJIDEA2017：IntelliJ IDEA 2017.2.2 x64、STS
+- IntelliJ IDEA - **IntelliJ IDEA 2017.2.2 x64、STS**
 
-- **SpringBoot 1.5.9**; RELEASE: 1.5.9
+- SpringBoot  - **RELEASE: 1.5.9**
 
-
-
-
-
-### 1、MAVEN设置；
+### 1、MAVEN设置
 
 给maven 的settings.xml配置文件的profiles标签添加
 
 ```xml
-<profile>
+	<profile>
   <id>jdk-1.8</id>
   <activation>
     <activeByDefault>true</activeByDefault>
@@ -61,9 +59,9 @@ http://www.gulixueyuan.com/ 谷粒学院
 </profile>
 ```
 
-### 2、IDEA设置
+### 2、IDEA 设置
 
-整合maven进来；
+整合 maven 进来
 
 ![idea设置](images/搜狗截图20180129151045.png)
 
@@ -118,19 +116,16 @@ public class HelloWorldMainApplication {
 ### 4、编写相关的Controller、Service
 
 ```java
-@Controller
+// 这个类的所有方法返回的数据直接写给浏览器，如果是对象则转为 json 数据
+@RestController
 public class HelloController {
 
-    @ResponseBody
     @RequestMapping("/hello")
     public String hello(){
         return "Hello World!";
     }
 }
-
 ```
-
-
 
 ### 5、运行主程序测试
 
@@ -148,11 +143,11 @@ public class HelloController {
     </build>
 ```
 
-将这个应用打成jar包，直接使用java -jar的命令进行执行；
+将这个应用打成 jar 包，直接使用 `java -jar` 的命令进行执行；
 
-## 5、Hello World探究
+## 5、Hello World 探究
 
-### 1、POM文件
+### 1、POM 文件
 
 #### 1、父项目
 
@@ -170,13 +165,12 @@ public class HelloController {
   <version>1.5.9.RELEASE</version>
   <relativePath>../../spring-boot-dependencies</relativePath>
 </parent>
-它来真正管理 SpringBoot应用里面的所有依赖版本；
-
+它来真正管理 SpringBoot应用里面的所有依赖版本
 ```
 
-Spring Boot的版本仲裁中心；
+Spring Boot 的版本仲裁中心
 
-以后我们导入依赖默认是不需要写版本；（没有在dependencies里面管理的依赖自然需要声明版本号）
+以后我们导入依赖默认是不需要写版本（没有在dependencies里面管理的依赖自然需要声明版本号）
 
 #### 2、启动器
 
@@ -189,11 +183,13 @@ Spring Boot的版本仲裁中心；
 
 **spring-boot-starter**-==web==：
 
-​	spring-boot-starter：spring-boot场景启动器；帮我们导入了web模块正常运行所依赖的组件；
+​	spring-boot-starter：spring-boot场景启动器；
 
+​	帮我们导入了web模块正常运行所依赖的组件；
 
+>  spring-boot-starter-email spring-boot-starter-aop 等等等
 
-Spring Boot将所有的功能场景都抽取出来，做成一个个的starters（启动器），只需要在项目里面引入这些starter相关场景的所有依赖都会导入进来。要用什么功能就导入什么场景的启动器
+Spring Boot 将所有的功能场景都抽取出来，做成一个个的 `starters`（启动器），只需要在项目里面引入这些 starter，相关场景的所有依赖都会导入进来。要用什么功能就导入什么场景的启动器
 
 
 
@@ -215,11 +211,14 @@ public class HelloWorldMainApplication {
 
 ```
 
-@**SpringBootApplication**:    Spring Boot应用标注在某个类上说明这个类是SpringBoot的主配置类，SpringBoot就应该运行这个类的main方法来启动SpringBoot应用；
+@**SpringBootApplication**: Spring Boot应用标注在某个类上说明这个类是SpringBoot的主配置类
+
+SpringBoot 就应该运行这个类的 main 方法来启动SpringBoot应用
 
 
 
 ```java
+// 点进 @SpringBootApplication
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -232,19 +231,19 @@ public class HelloWorldMainApplication {
 public @interface SpringBootApplication {
 ```
 
-@**SpringBootConfiguration**:Spring Boot的配置类；
+@**SpringBootConfiguration**:Spring Boot 的配置类
 
-​		标注在某个类上，表示这是一个Spring Boot的配置类；
+​		标注在某个类上，表示这是一个 Spring Boot 的配置类；
 
-​		@**Configuration**:配置类上来标注这个注解；
+​		@**Configuration**: 配置类上来标注这个注解；
 
-​			配置类 -----  配置文件；配置类也是容器中的一个组件；@Component
+​		配置类 -----  配置文件；配置类也是容器中的一个组件；@Component
 
+@**EnableAutoConfiguration**：开启自动配置功
 
+​		以前我们需要配置的东西，Spring Boot帮我们自动配置；
 
-@**EnableAutoConfiguration**：开启自动配置功能；
-
-​		以前我们需要配置的东西，Spring Boot帮我们自动配置；@**EnableAutoConfiguration**告诉SpringBoot开启自动配置功能；这样自动配置才能生效；
+​		告诉SpringBoot开启自动配置功能；这样自动配置才能生效；
 
 ```java
 @AutoConfigurationPackage
@@ -252,15 +251,15 @@ public @interface SpringBootApplication {
 public @interface EnableAutoConfiguration {
 ```
 
-​      	@**AutoConfigurationPackage**：自动配置包
+ 		@**AutoConfigurationPackage**：自动配置包
 
 ​		@**Import**(AutoConfigurationPackages.Registrar.class)：
 
-​		Spring的底层注解@Import，给容器中导入一个组件；导入的组件由AutoConfigurationPackages.Registrar.class；
+​		Spring 的底层注解 @Import，给容器中导入一个组件；导入的组件由AutoConfigurationPackages.Registrar.class；
 
 ==将主配置类（@SpringBootApplication标注的类）的所在包及下面所有子包里面的所有组件扫描到Spring容器；==
 
-​	@**Import**(EnableAutoConfigurationImportSelector.class)；
+​		@**Import**(EnableAutoConfigurationImportSelector.class)；
 
 ​		给容器中导入组件？
 
@@ -276,11 +275,9 @@ public @interface EnableAutoConfiguration {
 
 
 
-==Spring Boot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作；==以前我们需要自己配置的东西，自动配置类都帮我们；
+==Spring Boot 在启动的时候从类路径下的 META-INF/spring.factories 中获取 EnableAutoConfiguration 指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作；==以前我们需要自己配置的东西，自动配置类都帮我们；
 
-J2EE的整体整合解决方案和自动配置都在spring-boot-autoconfigure-1.5.9.RELEASE.jar；
-
-
+J2EE 的整体整合解决方案和自动配置都在 spring-boot-autoconfigure-1.5.9.RELEASE.jar；
 
 ​		
 
@@ -288,23 +285,23 @@ J2EE的整体整合解决方案和自动配置都在spring-boot-autoconfigure-1.
 
 
 
-## 6、使用Spring Initializer快速创建Spring Boot项目
+## 6、使用 Spring Initializer 快速创建 Spring Boot 项目
 
-### 1、IDEA：使用 Spring Initializer快速创建项目
+### 1、IDEA：使用 Spring Initializer 快速创建项目
 
-IDE都支持使用Spring的项目创建向导快速创建一个Spring Boot项目；
+IDE都支持使用Spring的项目创建向导快速创建一个 Spring Boot 项目；
 
-选择我们需要的模块；向导会联网创建Spring Boot项目；
+选择我们需要的模块；向导会联网创建 Spring Boot 项目；
 
-默认生成的Spring Boot项目；
+默认生成的 Spring Boot 项目；
 
 - 主程序已经生成好了，我们只需要我们自己的逻辑
-- resources文件夹中目录结构
+- resources 文件夹中目录结构
   - static：保存所有的静态资源； js css  images；
-  - templates：保存所有的模板页面；（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面）；可以使用模板引擎（freemarker、thymeleaf）；
-  - application.properties：Spring Boot应用的配置文件；可以修改一些默认设置；
+  - templates：保存所有的**模板**页面；（Spring Boot 默认 jar 包使用嵌入式的 Tomcat，默认不支持 JSP 页面）；可以使用模板引擎（freemarker、thymeleaf）；
+  - application.properties：Spring Boot应用的配置文件；可以修改一些默认设置
 
-### 2、STS使用 Spring Starter Project快速创建项目
+### 2、STS 使用 Spring Starter Project 快速创建项目
 
 
 
@@ -316,15 +313,13 @@ IDE都支持使用Spring的项目创建向导快速创建一个Spring Boot项目
 
 ## 1、配置文件
 
-SpringBoot使用一个全局的配置文件，配置文件名是固定的；
+SpringBoot 使用一个全局的配置文件，配置文件名是 **固定的**
 
-•application.properties
+- application.properties
 
-•application.yml
+- application.yml
 
-
-
-配置文件的作用：修改SpringBoot自动配置的默认值；SpringBoot在底层都给我们自动配置好；
+配置文件的作用：修改SpringBoot自动配置的默认值；SpringBoot在底层都给我们自动配置好
 
 
 
@@ -332,15 +327,15 @@ YAML（YAML Ain't Markup Language）
 
 ​	YAML  A Markup Language：是一个标记语言
 
-​	YAML   isn't Markup Language：不是一个标记语言；
+​	YAML   isn't Markup Language：不是一个标记语言
 
 标记语言：
 
-​	以前的配置文件；大多都使用的是  **xxxx.xml**文件；
+​	以前的配置文件；大多都使用的是  **xxxx.xml** 文件；
 
-​	YAML：**以数据为中心**，比json、xml等更适合做配置文件；
+YAML 以数据为中心**，比json、xml等更适合做配置文件
 
-​	YAML：配置例子
+YAML：配置例子（注意 ==空格不能省==）
 
 ```yaml
 server:
@@ -361,7 +356,7 @@ server:
 
 ### 1、基本语法
 
-k:(空格)v：表示一对键值对（空格必须有）；
+k:(空格)v：表示一对键值对（==空格必须有==）
 
 以**空格**的缩进来控制层级关系；只要是左对齐的一列数据，都是同一个层级的
 
