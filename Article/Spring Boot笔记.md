@@ -493,19 +493,19 @@ public class Person {
 
 #### 2、@Value获取值和@ConfigurationProperties获取值比较
 
-|            | @ConfigurationProperties | @Value |
-| ---------- | ------------------------ | ------ |
-| 功能         | 批量注入配置文件中的属性             | 一个个指定  |
-| 松散绑定（松散语法） | 支持                       | 不支持    |
-| SpEL       | 不支持                      | 支持     |
-| JSR303数据校验 | 支持                       | 不支持    |
-| 复杂类型封装     | 支持                       | 不支持    |
+|                       | @ConfigurationProperties           | @Value     |
+| --------------------- | ---------------------------------- | ---------- |
+| 功能                  | 批量注入配置文件中的属性           | 一个个指定 |
+| 松散绑定（松散语法 ） | 支持                               | 不支持     |
+| SpEL（计算 #1+2）     | 不支持                             | 支持       |
+| JSR303 数据校验       | 支持 @Validated (在数据上方@Email) | 不支持     |
+| 复杂类型封装          | 支持                               | 不支持     |
 
 配置文件 yml 还是 properties 它们都能获取到值；
 
-如果说，我们只是在某个业务逻辑中需要获取一下配置文件中的某项值，使用@Value；
+如果说，我们只是在某个业务逻辑中需要获取一下配置文件中的某项值，使用 @Value；
 
-如果说，我们专门编写了一个javaBean来和配置文件进行映射，我们就直接使用@ConfigurationProperties；
+如果说，我们专门编写了一个 javaBean 来和配置文件进行映射，我们就直接使用 @ConfigurationProperties；
 
 
 
@@ -553,6 +553,7 @@ public class Person {
  * 只有这个组件是容器中的组件，才能容器提供的@ConfigurationProperties功能；
  *  @ConfigurationProperties(prefix = "person")默认从全局配置文件中获取值；
  *
+ *  @PropertySource 这个注解只能读 properties 不能读 yml!
  */
 @PropertySource(value = {"classpath:person.properties"})
 @Component
@@ -579,7 +580,7 @@ public class Person {
 
 
 
-@**ImportResource**：导入Spring的配置文件，让配置文件里面的内容生效；
+@**ImportResource**：导入 Spring 的配置文件，让配置文件里面的内容生效；
 
 Spring Boot里面没有Spring的配置文件，我们自己编写的配置文件，也不能自动识别；
 
