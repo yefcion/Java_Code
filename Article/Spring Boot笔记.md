@@ -540,7 +540,7 @@ public class Person {
 
 
 
-#### 4、@PropertySource&@ImportResource&@Bean
+#### 4、@PropertySource & @ImportResource & @Bean
 
 @**PropertySource**：加载指定的配置文件；
 
@@ -582,18 +582,18 @@ public class Person {
 
 @**ImportResource**：导入 Spring 的配置文件，让配置文件里面的内容生效；
 
-Spring Boot里面没有Spring的配置文件，我们自己编写的配置文件，也不能自动识别；
+Spring Boot 里面没有 Spring 的配置文件，我们自己编写的配置文件，也不能自动识别；
 
-想让Spring的配置文件生效，加载进来；@**ImportResource**标注在一个配置类上
+想让 Spring 的配置文件生效，加载进来；@**ImportResource** 标注在一个配置类上
 
 ```java
 @ImportResource(locations = {"classpath:beans.xml"})
-导入Spring的配置文件让其生效
+导入 Spring 的配置文件让其生效
 ```
 
 
 
-不来编写Spring的配置文件
+不推荐方式：逐个编写 Spring 的配置文件
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -606,7 +606,7 @@ Spring Boot里面没有Spring的配置文件，我们自己编写的配置文件
 </beans>
 ```
 
-SpringBoot推荐给容器中添加组件的方式；推荐使用全注解的方式
+SpringBoot推荐给容器中添加组件的方式：**推荐使用全注解的方式**
 
 1、配置类**@Configuration**------>Spring配置文件
 
