@@ -631,14 +631,13 @@ public class MyAppConfig {
 }
 ```
 
-##4、配置文件占位符
+## 4、配置文件占位符
 
 ### 1、随机数
 
 ```java
 ${random.value}、${random.int}、${random.long}
 ${random.int(10)}、${random.int[1024,65536]}
-
 ```
 
 
@@ -663,76 +662,71 @@ person.dog.age=15
 
 ### 1、多Profile文件
 
-我们在主配置文件编写的时候，文件名可以是   application-{profile}.properties/yml
+我们在主配置文件编写的时候，文件名可以是 application-`{profile}`.properties/yml
 
-默认使用application.properties的配置；
+application-dev.properties
 
+默认使用 application.properties 的配置
 
+在 application.properties 配置文件中指定  spring.profiles.active=dev 则激活 application-dev.properties 这个配置文件
 
 ### 2、yml支持多文档块方式
 
 ```yml
-
 server:
   port: 8081
 spring:
   profiles:
-    active: prod
-
+    active: prod # 这个块用于激活
 ---
 server:
   port: 8083
 spring:
   profiles: dev
-
-
 ---
-
 server:
   port: 8084
 spring:
-  profiles: prod  #指定属于哪个环境
+  profiles: prod # 指定属于哪个环境
 ```
-
-
-
-
 
 ### 3、激活指定profile
 
 ​	1、在配置文件中指定  spring.profiles.active=dev
 
-​	2、命令行：
+​	2、IDEA - Edit Configuration - Program arguments
 
-​		java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev；
+​		添加 参数 `--spring.profiles.active=dev`
 
-​		可以直接在测试的时候，配置传入命令行参数
-
-​	3、虚拟机参数；
+​	3、虚拟机参数 - VM options
 
 ​		-Dspring.profiles.active=dev
 
+​	4、命令行：
 
+```bash
+java -jar spring-boot-02-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+```
+
+​		可以直接在测试的时候，配置传入命令行参数
 
 ## 6、配置文件加载位置
 
-springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件
+springboot 启动会扫描以下位置的 application.properties 或者 application.yml 文件作为 Spring boot 的默认配置文件
 
-–file:./config/
+- file:./config/
 
-–file:./
+- file:./
 
-–classpath:/config/
+- classpath:/config/
 
-–classpath:/
+- classpath:/
 
-优先级由高到底，高优先级的配置会覆盖低优先级的配置；
+**优先级由高到底**，高优先级的配置会覆盖低优先级的配置；
 
-SpringBoot会从这四个位置全部加载主配置文件；**互补配置**；
+SpringBoot会从这四个位置全部加载主配置文件：**互补配置**
 
-
-
-==我们还可以通过spring.config.location来改变默认的配置文件位置==
+==我们还可以通过 spring.config.location 来改变默认的配置文件位置==
 
 **项目打包好以后，我们可以使用命令行参数的形式，启动项目的时候来指定配置文件的新位置；指定配置文件和默认加载的这些配置文件共同起作用形成互补配置；**
 
