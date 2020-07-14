@@ -1087,7 +1087,7 @@ JUL、JCL、Jboss-logging、logback、log4j、log4j2、slf4j....
 
 左边选一个门面（抽象层）、右边来选一个实现；
 
-日志门面：  SLF4J；
+日志门面： SLF4J；
 
 日志实现：Logback；
 
@@ -1105,7 +1105,7 @@ SpringBoot：底层是Spring框架，Spring框架默认是用JCL；‘
 
 以后开发的时候，日志记录方法的调用，不应该来直接调用日志的实现类，而是调用日志抽象层里面的方法；
 
-给系统里面导入slf4j的jar和  logback的实现jar
+给系统里面导入 slf4j 的 jar 和 logback 的实现 jar
 
 ```java
 import org.slf4j.Logger;
