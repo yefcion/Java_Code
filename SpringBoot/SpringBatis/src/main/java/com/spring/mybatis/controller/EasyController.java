@@ -1,5 +1,6 @@
 package com.spring.mybatis.controller;
 
+import com.spring.mybatis.common.XRspEntity;
 import com.spring.mybatis.entity.Person;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -30,17 +31,21 @@ public class EasyController {
     @ApiOperation("根据id查询用户的接口")
     @ApiImplicitParam(name = "id", value = "用户id", defaultValue = "99", required = true)
     @RequestMapping(value = "/getUser", method = RequestMethod.GET)
-    public Person getUserById(@PathVariable Integer id) {
+    public XRspEntity<Person> getUserById() {
+        XRspEntity<Person> xRspEntity = new XRspEntity<>();
         Person person = new Person();
-        person.setId(id);
-        return person;
+        person.setId(99);
+        xRspEntity.setData(person);
+        return xRspEntity;
     }
 
     @ApiOperation("根据id更新用户的接口")
-    @RequestMapping(value = "/updateUser/{id}", method = RequestMethod.PUT)
-    public Person updateUserById(@RequestBody int id) {
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    public XRspEntity<Person> updateUserById(@RequestParam int id) {
+        XRspEntity<Person> xRspEntity = new XRspEntity<>();
         Person person = new Person();
         person.setId(id);
-        return person;
+        xRspEntity.setData(person);
+        return xRspEntity;
     }
 }
