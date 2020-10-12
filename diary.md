@@ -105,3 +105,9 @@ Lr
 2020.09.04
 
 RestTemplate 有个坑，当入参的 value 是 `{}` 形式的字符串时可能导致报错。
+
+
+
+2020.10.12
+
+MyBatis Again
